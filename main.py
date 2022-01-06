@@ -2,39 +2,6 @@ import logging
 import math
 import turtle
 
-
-def side_is_valid(side_len):
-    """Check if the entered length is a positive integer."""
-    # Check if it's an integer.
-    try:  # The use of exception handling.
-        int(side_len)
-    except ValueError:
-        print('The length must be an integer.')
-        return False
-
-    # Check if it's positive.
-    if int(side_len) <= 0:
-        print('The length must be positive.')
-        return False
-    else:
-        return True
-
-
-def input_sides(sides):
-    """Get a valid input from the user and format it appropriately."""
-    i = 0
-    while i < 3:
-        sides.append(input(f'Please enter the length of the #{i+1} side: '))
-        if side_is_valid(sides[i]):
-            i += 1
-        else:
-            sides.pop()
-    # Convert string to integers.
-    sides = [int(i) for i in sides]  # The use of list comprehension.
-    sides.sort()
-    return sides
-
-
 def triangle_is_valid(sides):
     """ 
     Check if the user has entered three 
@@ -52,6 +19,38 @@ def triangle_is_valid(sides):
         return True
     else:
         return False
+
+
+def input_sides(sides):
+    """Get a valid input from the user and format it appropriately."""
+    i = 0
+    while i < 3:
+        sides.append(input(f'Please enter the length of the #{i+1} side: '))
+        if side_is_valid(sides[i]):
+            i += 1
+        else:
+            sides.pop()
+    # Convert string to integers.
+    sides = [int(i) for i in sides]  # The use of list comprehension.
+    sides.sort()
+    return sides
+
+
+def side_is_valid(side_len):
+    """Check if the entered length is a positive integer."""
+    # Check if it's an integer.
+    try:  # The use of exception handling.
+        int(side_len)
+    except ValueError:
+        print('The length must be an integer.')
+        return False
+
+    # Check if it's positive.
+    if int(side_len) <= 0:
+        print('The length must be positive.')
+        return False
+    else:
+        return True
 
 
 def is_right_angled(sides):
