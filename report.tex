@@ -3,6 +3,8 @@
 \usepackage[margin=3cm]{geometry}
 \usepackage{listings}
 \usepackage{xcolor}
+\usepackage{graphicx}
+\graphicspath{ {~/dox/cs/pythogorean-magic} }
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -45,6 +47,46 @@
         user friendly and intuitive to use, readable and well-documented (the
         code), follow the PEP-8 convention,  will not crash, contain severe
         bugs or cause any frustration to a user.
+\end{itemize}
+
+\section{Design}
+\begin{itemize}
+    \item Flow-chart:
+
+\begin{figure}[h]
+	\includegraphics[scale=0.35]{flow-chart.jpg}
+	\centering
+\end{figure}
+
+    \item Rhomboids represent choices, parallelograms -- outputs, green
+        background means function, rectangles are actions.
+
+    \item The lengths entered by a user will be stored in a list as strings,
+        which after all the validation checks will be converted into integers
+        and sorted in the descending order.
+
+    \item The function which prompts the user to input sides includes another
+        function that determines whether the input is a positive integer.
+
+    \item Test data:
+\begin{itemize}
+    \item 1, 1, 1 \textbf{[PASSED]}
+    \item 3, 4, 5 \textbf{[PASSED]}
+    \item 4, 3, 5 \textbf{[PASSED]}
+    \item 5, 4, 3 \textbf{[PASSED]}
+    \item 7, 9, 8 \textbf{[PASSED]}
+    \item 8, 14, 8 \textbf{[PASSED]}
+    \item 0 \textbf{[PASSED]}
+    \item 1.5 \textbf{[PASSED]}
+    \item -3 \textbf{[PASSED]}
+    \item abc \textbf{[PASSED]}
+    \item *\&\#@ \textbf{[PASSED]}
+    \item $<$CR$>$ \textbf{[PASSED]}
+    \item 1, 2, 999 \textbf{[PASSED]}
+    \item 300000, 400000, 500000 \textbf{[PASSED]}
+    \item 100, 99, 98 \textbf{[PASSED]}
+    \item 1, 100, 1 \textbf{[PASSED]}
+\end{itemize}
 \end{itemize}
 
 \section{Development}
@@ -192,7 +234,7 @@ def draw_triangle(sides):
 \section{Evaluation}
 \begin{itemize}
     \item The program has successfully met all the criteria and features set in
-        the Analysis section.
+        the Analysis section, and passed every test in the Design section.
     \item Potential maintenance problems could occur if something happens to
         the external libraries used or in case more users test the program on
         different devices. Since I am neither maintaining the libraries, nor
@@ -205,6 +247,4 @@ def draw_triangle(sides):
         and in the output (i.e. angles).  Moreover, a system of saving the
         results in a file (both drawing and parameters) may be implemented.
 \end{itemize}
-
-
 \end{document}
